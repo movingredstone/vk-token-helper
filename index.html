@@ -113,6 +113,16 @@
   </div>
 
   <div class="card">
+    <div class="label">그룹 설정까지 바꾸려면</div>
+    <p style="margin:0;font-size:13px;line-height:1.6;color:var(--muted)">
+      <code style="font-size:12px">groups.edit</code>,
+      <code style="font-size:12px">groups.getSettings</code> 같은 그룹 관리 메서드는
+      <b style="color:var(--text)">Standalone 앱 토큰</b>에서만 동작합니다. 이 Mini App 토큰으로는 호출되지 않습니다.
+      <a href="standalone.html" style="color:var(--accent)">Standalone Token Helper →</a>
+    </p>
+  </div>
+
+  <div class="card">
     <div class="label">Security</div>
     <ul class="note">
       <li>토큰은 저장되지 않습니다 (localStorage / sessionStorage / cookie / 서버 전송 없음).</li>

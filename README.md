@@ -222,7 +222,27 @@ print(r.json())
 
 ---
 
-## 9. 다음 단계 (자동화)
+## 9. Standalone 토큰 (그룹 설정 변경용)
+
+`groups.edit`, `groups.getSettings` 등 **그룹 관리 메서드는 Standalone 앱 토큰에서만** 동작한다.
+Mini App 토큰으로 호출하면 이렇게 거부된다:
+
+```text
+error_code=15  Permission to perform this action is denied for non-standalone applications
+```
+
+이건 scope 문제가 아니라 **앱 타입** 문제다. 해결하려면:
+
+1. VK Developers에서 앱을 하나 더 만들되 타입을 **`Standalone-приложение`** 으로 선택
+2. `standalone.html` 페이지를 연다 → https://movingredstone.github.io/vk-token-helper/standalone.html
+3. Standalone App ID 입력 → 권한 승인 → 이동한 빈 페이지의 **주소창을 통째로 복사** → 붙여넣기
+
+Standalone은 VK Bridge가 아니라 implicit OAuth를 쓴다. 토큰이 리다이렉트 URL의 `#` 뒤에 실려오는데,
+`oauth.vk.com/blank.html` 은 우리 도메인이 아니라 JS로 읽을 수 없다. 그래서 주소창을 복사해 붙여넣는 방식이다.
+
+`offline` 권한을 켜면 토큰이 만료되지 않는다. 자동화에는 편하지만 유출 시 계속 유효하니 주의.
+
+## 10. 다음 단계 (자동화)
 
 이 토큰으로 이후 구현할 수 있는 것들:
 
