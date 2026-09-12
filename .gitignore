@@ -1,0 +1,27 @@
+# ---- 절대 커밋하면 안 되는 것 ----
+# Never commit your VK access token or client secret.
+.env
+.env.*
+*.env
+secrets.*
+token.txt
+tokens.txt
+*token*.json
+vk_token*
+credentials.*
+
+# ---- OS / 에디터 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ---- 로그 / 임시 ----
+*.log
+tmp/
+.cache/
+
+# ---- 이 프로젝트는 Node 빌드를 쓰지 않지만 혹시 모를 실수 방지 ----
+node_modules/
+dist/
